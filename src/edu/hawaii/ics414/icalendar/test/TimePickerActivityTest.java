@@ -20,7 +20,7 @@ public class TimePickerActivityTest extends ActivityInstrumentationTestCase2<Tim
 	 * @param name
 	 */
 	@SuppressWarnings("deprecation")
-	public TimePickerActivityTest(String name) {
+	public TimePickerActivityTest() {
 		super("edu.hawaii.ics414.icalendar", TimePickerActivity.class);
 	}
 
@@ -47,8 +47,10 @@ public class TimePickerActivityTest extends ActivityInstrumentationTestCase2<Tim
 	public void testConvertTime() {
 		int testHour = 1;
 		int testMinute = 0;
+		String expected = "1:00 AM";
+		String actual = testActivity.convertTime(testHour, testMinute);
 		
-		assertTrue("Unexpected implementation of convertTime().", "1:00AM".equals(testActivity.convertTime(testHour, testMinute)));
+		assertTrue("Expected " + expected + " but got " + actual, expected.equals(actual));
 	}
 
 }

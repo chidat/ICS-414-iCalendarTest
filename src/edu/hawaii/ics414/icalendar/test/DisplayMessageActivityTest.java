@@ -21,7 +21,7 @@ public class DisplayMessageActivityTest extends ActivityInstrumentationTestCase2
 	 * @param name
 	 */
 	@SuppressWarnings("deprecation")
-	public DisplayMessageActivityTest(String name) {
+	public DisplayMessageActivityTest() {
 		super("edu.hawaii.ics414.icalendar", DisplayMessageActivity.class);
 	}
 
@@ -43,11 +43,11 @@ public class DisplayMessageActivityTest extends ActivityInstrumentationTestCase2
 	}
 	
 	public void testPreconditions() {
-		assertNotNull(mView);
+		assertNotNull("mView is null.", mView);
 	}
 	
 	public void testText() {
-		assertEquals(resourceString,(String)mView.getText());
+		assertEquals("expected " + resourceString + " but got " + (String)mView.getText(), resourceString, (String)mView.getText());
 	}
 
 }
